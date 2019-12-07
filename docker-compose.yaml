@@ -11,6 +11,16 @@ services:
       - "./api:/var/www"
     working_dir: /var/www
     command: npm run dev
+  front:
+      image: node:10.17
+      networks:
+        - application
+      ports: 
+        - "3000:3000"
+      volumes:
+        - "./front:/var/www"
+      working_dir: /var/www
+      command: npm run install-start
   db:
     image: mysql:8.0
     networks:

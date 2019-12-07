@@ -3,6 +3,7 @@ const { Comment } = require("../models");
 module.exports = {
     index: async (req, res) => {
         const comments = await Comment.findAll({
+            attributes: ["id", "post_id", "name", "email", "body", "createdAt", "updatedAt"],
             where: {post_id: req.params.id}, 
         });
         res.send(comments);
