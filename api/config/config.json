@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "root",
+    "password": "mysqlpsw",
+    "database": "blog",
+    "host": "db",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}

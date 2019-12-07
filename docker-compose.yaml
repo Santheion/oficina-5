@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+  api:
+    image: node:10.17
+    networks:
+      - application
+    ports: 
+      - "3030:3030"
+    volumes:
+      - "./api:/var/www"
+    working_dir: /var/www
+    command: npm run dev
+  db:
+    image: mysql:8.0
+    networks:
+      - application
+    ports: 
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlpsw
+    volumes:
+      - mysqldb:/var/lib/mysql
+volumes: 
+  mysqldb:
+networks: 
+  application: 
+    driver: bridge
